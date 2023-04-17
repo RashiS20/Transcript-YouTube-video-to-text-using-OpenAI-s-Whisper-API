@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question-Answer Form</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+		}
+		h1 {
+			text-align: center;
+			color: #555;
+			margin-bottom: 30px;
+		}
+		label {
+			font-weight: bold;
+			color: #333;
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="text"] {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		button[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		.answer {
+			font-weight: bold;
+			color: #333;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Question-Answer Form</h1>
+		<form>
+			<label for="question">Enter your question:</label>
+			<input type="text" id="question" placeholder="Question...">
+			<button type="submit" id="submit-btn">Ask</button>
+		</form>
+		<div id="answer-container">
+			<p class="answer" id="answer"></p>
+		</div>
+	</div>
+
+	<script>
+		const form = document.querySelector('form');
+		const answerContainer = document.getElementById('answer-container');
+		const answer = document.getElementById('answer');
+
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const question = document.getElementById('question').value;
+			if (question.trim().length === 0) {
+				answer.innerText = 'Please enter a valid question';
+			} else {
+				// we will Call our backend API here to get the answer based on the user's question
+				
+				const hardcodedAnswer = 'This is the answer to your question';
+				answer.innerText = hardcodedAnswer;
+			}
+			answerContainer.style.display = 'block';
+		});
+	</script>
+</body>
+</html>
